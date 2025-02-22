@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "vite --mode development --host 0.0.0.0 --open",
     "test": "vite --mode test --host 0.0.0.0",
-    "build-test": "run-p type-check build-only --mode test",
-    "build-pro": "run-p type-check build-only --mode production",
+    "build:test": "vite build --mode test",
+    "build:pro": "vite build --mode production",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
     "build-only": "vite build",
