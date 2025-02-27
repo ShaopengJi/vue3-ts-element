@@ -24,3 +24,30 @@ export const tansParams = (params: any) => {
 export const blobValidate = (data: any) => {
   return data.type !== "application/json"
 }
+onDocumentMouseMove = (event, self) => {
+  self.mouse.x = (event.clientX / window.innerWidth) * 2 - 1
+  self.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
+  // let domRect = this.dom.getBoundingClientRect()
+  // self.mouse.x = ((event.clientX - domRect.left) / domRect.width) * 2 - 1
+  // self.mouse.y = -((event.clientY - domRect.top) / domRect.height) * 2 + 1
+  self.raycaster.setFromCamera(self.mouse, self.camera)
+  let intersects = []
+  intersects = self.raycaster.intersectObjects(self.scene.children, true, intersects)
+  // console.log('intersects', intersects)
+  if (intersects && intersects.length > 0) {
+    let name = ""
+    if (self.electricalTimerSchedule == null) {
+      name = intersects[0].object.name
+    } else {
+      for (let i = 0; i < intersects.length; i++) {
+        if (intersects[i].object.name.indexOf("DT") > -1) {
+          name = intersects[i].object.name
+          // console.log('name', name)
+          intersects = [intersects[i]]
+          break
+        }
+      }
+    }
+    console.log("!!!!!!!!!!!!", name)
+  }
+}

@@ -1,6 +1,12 @@
 <template>
   <section class="app-main">
-    <router-view v-slot="{ Component, route }"> </router-view>
+    <router-view v-slot="{ Component }">
+      <transition name="slide-right" mode="out-in">
+        <keep-alive>
+          <component :is="Component" class="w100" @hook:mounted="NextLoading.done(1)" />
+        </keep-alive>
+      </transition>
+    </router-view>
   </section>
 </template>
 
@@ -8,6 +14,7 @@
 //   import useTagsViewStore from '@/store/modules/tagsView';
 //   import useSettingsStore from '@/store/modules/settings';
 import { ComponentInternalInstance } from "vue"
+import { NextLoading } from "@/utils/loading"
 const { proxy } = getCurrentInstance() as ComponentInternalInstance
 // const tagsViewStore = useTagsViewStore();
 

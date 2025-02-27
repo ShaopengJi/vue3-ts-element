@@ -17,3 +17,8 @@ declare interface ViteEnv {
   VITE_GLOB_BPMN_PROCESS_URL: string
   VITE_GLOB_SYS_URL: string
 }
+// 声明文件，定义全局变量
+/* eslint-disable */
+declare interface Window {
+  nextLoading: boolean
+}
