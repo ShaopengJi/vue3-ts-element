@@ -17,9 +17,33 @@ export const routesData = [
     redirect: "/demo",
     children: [
       {
+        path: "/index",
+        name: "index",
+        component: () => import("@/views/index/Index.vue"),
+        meta: {
+          title: "首页"
+        }
+      },
+      {
+        path: "/docsCenter",
+        name: "docsCenter",
+        component: () => import("@/views/docsCenter/Index.vue"),
+        meta: {
+          title: "文档中心"
+        }
+      },
+      {
         path: "/demo",
         name: "demo",
-        component: () => import("@/views/Demo.vue")
+        component: () => import("@/views/DemoIndex.vue"),
+        meta: {
+          title: "demo"
+        }
+      },
+      {
+        path: "/demo2",
+        name: "demo2",
+        component: () => import("@/views/Demodemo.vue")
       }
     ]
   }
@@ -32,4 +56,4 @@ export const routesData = [
   //   component: () => import('../views/AboutView.vue')
   // }
 ]
-export const whiteList = ["/login", "/home"]
+export const whiteList = ["/login", "/home", "/demo", "/demo2", "/index", "/docsCenter"]

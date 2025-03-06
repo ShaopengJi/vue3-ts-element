@@ -10,7 +10,7 @@ const router = createRouter({
   routes: routesData
 })
 router.beforeEach((to, from, next) => {
-  NextLoading.start()
+  // NextLoading.start()
   console.log("!!!!!!!!!!!!!!!!!!", to, from, next)
   const token = Cookies.get("token")
   if (whiteList.includes(to.path)) {

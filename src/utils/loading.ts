@@ -10,6 +10,7 @@ import "@/theme/loading.scss"
 export const NextLoading = {
   // 创建 loading
   start: () => {
+    console.log(document)
     const bodys: Element = document.body
     const div = <HTMLElement>document.createElement("div")
     div.setAttribute("class", "loading-next")
@@ -38,6 +39,7 @@ export const NextLoading = {
       setTimeout(() => {
         window.nextLoading = false
         const el = <HTMLElement>document.querySelector(".loading-next")
+        console.log(el)
         el?.parentNode?.removeChild(el)
       }, time)
     })

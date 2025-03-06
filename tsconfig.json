@@ -11,5 +11,14 @@
     {
       "path": "./tsconfig.vitest.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+      "jsx": "preserve",
+      "jsxFactory": "h",
+      "jsxFragmentFactory": "Fragment",
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["./src/*"]
+      }
+    }
 }

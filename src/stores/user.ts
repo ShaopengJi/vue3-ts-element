@@ -1,4 +1,4 @@
-import store from "@/store"
+import store from "@/stores"
 import { getToken, removeToken, setToken } from "@/utils/auth"
 import { type LoginData } from "@/api/types"
 import { defineStore } from "pinia"

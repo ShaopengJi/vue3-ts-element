@@ -22,3 +22,8 @@ declare interface ViteEnv {
 declare interface Window {
   nextLoading: boolean
 }
+// 声明 ref
+declare type RefType<T = any> = T | null
+interface anyObj {
+  [key: string]: any
+}

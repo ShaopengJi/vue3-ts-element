@@ -1,5 +1,5 @@
 import axios, { type AxiosResponse, type InternalAxiosRequestConfig } from "axios"
-import { useUserStore } from "@/store/modules/user"
+import { useUserStore } from "../stores/user"
 import { getToken } from "@/utils/auth"
 import { tansParams, blobValidate } from "@/utils/utils"
 import cache from "@/plugins/cache"

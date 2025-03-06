@@ -52,7 +52,8 @@ export default defineConfig(({ mode = "development" }) => {
     resolve: {
       alias: {
         "@": resolve(process.cwd(), "src")
-      }
+      },
+      extensions: [".ts", ".js", ".vue"] // 添加 .ts 到扩展名列表
     },
     build: configureBuildOptions(env)
   }
