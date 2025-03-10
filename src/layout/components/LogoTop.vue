@@ -30,7 +30,8 @@ const siteConfig = useSiteConfig()
   justify-content: center;
   box-sizing: border-box;
   padding: 10px;
-  background: "transparent";
+  // background: "transparent";
+  background: white;
 }
 .logo-img {
   width: 28px;

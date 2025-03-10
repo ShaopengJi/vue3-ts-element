@@ -56,5 +56,15 @@ export default defineConfig(({ mode = "development" }) => {
       extensions: [".ts", ".js", ".vue"] // 添加 .ts 到扩展名列表
     },
     build: configureBuildOptions(env)
+    // server: {
+    //   proxy: {
+    //     "/": {
+    //       // 匹配所有请求路径
+    //       target: env.VITE_API_BASEURL,
+    //       changeOrigin: true,
+    //       rewrite: (path) => `/api${path}` // 自动添加 `/api` 前缀
+    //     }
+    //   }
+    // }
   }
 })

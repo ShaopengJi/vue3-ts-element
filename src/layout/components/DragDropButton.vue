@@ -19,8 +19,8 @@
 import { ref, computed, onMounted, onUnmounted, nextTick } from "vue"
 import { useRoute } from "vue-router"
 const route = useRoute()
-const top = ref(0)
-const left = ref(0)
+const top = ref(window.innerHeight / 2)
+const left = ref(window.innerWidth)
 const isDown = ref(false)
 const draggableButton = ref(null)
 const isLeftButton = ref(false)

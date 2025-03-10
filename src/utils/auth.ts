@@ -1,9 +1,8 @@
-const TokenKey = "token"
+import Cookies from "js-cookie"
+export const TokenKey = "zhishigu-doc-token"
 
-const tokenStorage = useStorage<null | string>(TokenKey, null)
+export const getToken = () => Cookies.get(TokenKey)
 
-export const getToken = () => tokenStorage.value
+export const setToken = (access_token: string) => Cookies.set(TokenKey, access_token)
 
-export const setToken = (access_token: string) => (tokenStorage.value = access_token)
-
-export const removeToken = () => (tokenStorage.value = null)
+export const removeToken = () => Cookies.remove(TokenKey)

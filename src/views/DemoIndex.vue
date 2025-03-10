@@ -147,7 +147,7 @@ const option = reactive({
         show: true,
         fontSize: 14
         // formatter: (params) => {
-        //   console.log("!!!!!!!!!!!!!!", params)
+        //   console.log(, params)
         //   return params.dataIndex
         // }
       },
@@ -233,7 +233,7 @@ onMounted(() => {
       // }, 200)
     })
     myChart.on("dblclick", function (param) {
-      console.log(param, "!!!!!!!!!!!")
+      // console.log(param)
       isDoubleClick = true
       // TODO执行完逻辑后
       setTimeout(() => {

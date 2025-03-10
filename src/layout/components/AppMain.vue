@@ -5,10 +5,13 @@
       :style="layoutMainScrollbarStyle"
       ref="layoutMainScrollbarRef"
     >
-      <router-view v-slot="{ Component }">
+      <router-view v-slot="{ Component, route }">
         <transition :name="config.layout.mainAnimation" mode="out-in">
           <keep-alive>
-            <component :is="Component" />
+            <div :key="route.fullPath">
+              <Header />
+              <component :is="Component" />
+            </div>
           </keep-alive>
         </transition>
       </router-view>
@@ -25,6 +28,7 @@ import { useConfig } from "@/stores/config"
 import type { ScrollbarInstance } from "element-plus"
 import type { CSSProperties } from "vue"
 import { mainHeight } from "@/utils/layout"
+import Header from "./Header.vue"
 /**
  * 前后台布局的主体的滚动条组件ref
  */

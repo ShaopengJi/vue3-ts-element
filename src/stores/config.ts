@@ -12,7 +12,7 @@ export const useConfig = defineStore("config", () => {
     menuBackground: ["var(--bg-color)", "#1d1e1f"],
     menuColor: ["#303133", "#CFD3DC"],
     menuActiveBackground: ["#fff", "#1d1e1f"],
-    menuActiveColor: ["#fff", "#000"],
+    menuActiveColor: ["#000", "#000"],
     menuTopBarBackground: ["var(--bg-color)", "#1d1e1f"],
     menuWidth: 260,
     menuDefaultIcon: "fa fa-circle-o",

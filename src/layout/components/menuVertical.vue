@@ -38,7 +38,9 @@
           <template #title>文档中心</template>
         </el-menu-item>
       </RouterLink>
+      <el-divider></el-divider>
       <div v-if="!config.layout.menuCollapse">知识库</div>
+      <el-divider content-position="left">知识库</el-divider>
       <RouterLink to="/template">
         <el-menu-item index="2">
           <el-icon><Document /></el-icon>

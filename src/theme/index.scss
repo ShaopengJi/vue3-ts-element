@@ -1,50 +1,11 @@
 @import './common/transition.scss';
+@import './common/width.scss';
+@import './common/flex.scss';
+@import './common/element.scss';
 :root {
-	--bg-color: rgb(105, 103, 178);
+	--bg-color: rgb(241,245,248);
     --hover-color: rgb(137, 133, 192);
 }
 #app{
     width: 100%;
-}
-// 鼠标 hover 时颜色
-.el-menu-hover-bg-color {
-	background-color:  var(--hover-color)!important;
-    color: white !important;
-    border-radius: 10px !important;
-    // margin: 0 10px;
-}
-// 水平菜单、横向菜单高亮 背景色，鼠标 hover 时，有子级菜单的背景色
-.el-menu-item,
-.el-menu-item.is-active,
-.el-sub-menu,
-.el-sub-menu.is-active,
-.el-sub-menu:not(.is-opened):hover .el-sub-menu__title,
-.el-menu-item:hover {
-    color:white;
-    margin: 5px 0;
-	border-radius: 10px !important;
-}
-.el-menu-item.is-active,.el-sub-menu.is-active,.el-menu-item:hover{
-    @extend .el-menu-hover-bg-color;
-}
-.el-sub-menu__title:hover,.el-sub-menu:not(.is-opened):hover .el-sub-menu__title{
-    @extend .el-menu-hover-bg-color;
-    margin: 0;
-}
-
-.el-sub-menu__title,.el-sub-menu__title:hover{
-    border-radius: 10px !important;
-}
-.el-sub-menu.is-opened {
-    background-color:rgb(105, 103, 178) !important
-}
-.el-sub-menu__title{
-    color: white;
-}
-.el-overlay{
-    background-color: rgba(105, 103, 178, 0.7) !important;
-    z-index: 1999 !important;
-}
-.el-popper {
-    text-wrap: nowrap !important;
 }

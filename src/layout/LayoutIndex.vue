@@ -2,11 +2,10 @@
   <el-container class="layout-container">
     <Asider />
     <el-container class="content-wrapper">
-      <Header />
       <AppMain style="width: 100%" />
     </el-container>
+    <DragDropButton />
   </el-container>
-  <DragDropButton />
 </template>
 
 <script setup lang="ts">

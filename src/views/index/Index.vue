@@ -29,7 +29,6 @@
         { text: 'Office', value: 'Office' }
       ]"
       :filter-method="filterTag"
-      :filter-change="filterChange"
       filter-placement="bottom-end"
     >
       <template #default="scope">
@@ -38,12 +37,37 @@
         }}</el-tag>
       </template>
     </el-table-column>
+    <FilterColumn
+      prop="tag"
+      label="Tag"
+      width="100"
+      :filters="[
+        { text: 'Home', value: 'Home' },
+        { text: 'Office', value: 'Office' }
+      ]"
+      :filter-method="filterTag"
+      filter-placement="bottom-end"
+    >
+      <template #default="scope">
+        <el-tag :type="scope.row.tag === 'Home' ? 'primary' : 'success'" disable-transitions>{{
+          scope.row.tag
+        }}</el-tag>
+      </template>
+    </FilterColumn>
+    <AutoColumn
+      :options="[
+        { label: 'date', value: 'date' },
+        { label: 'tag', value: 'tag' }
+      ]"
+    />
   </el-table>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue"
 import type { TableColumnCtx, TableInstance } from "element-plus"
+import AutoColumn from "@/components/AutoColumn.vue"
+import FilterColumn from "@/components/FilterColumn.vue"
 
 interface User {
   date: string
@@ -51,7 +75,7 @@ interface User {
   address: string
   tag: string
 }
-
+const tableData = ref<User[]>([])
 const tableRef = ref<TableInstance>()
 
 const resetDateFilter = () => {
@@ -73,31 +97,32 @@ const filterHandler = (value: string, row: User, column: TableColumnCtx<User>) =
   const property = column["property"]
   return row[property] === value
 }
-
-const tableData: User[] = [
-  {
-    date: "2016-05-03",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-    tag: "Home"
-  },
-  {
-    date: "2016-05-02",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-    tag: "Office"
-  },
-  {
-    date: "2016-05-04",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-    tag: "Home"
-  },
-  {
-    date: "2016-05-01",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-    tag: "Office"
-  }
-]
+onMounted(() => {
+  tableData.value = [
+    {
+      date: "2016-05-03",
+      name: "Tom",
+      address: "No. 189, Grove St, Los Angeles",
+      tag: "Home"
+    },
+    {
+      date: "2016-05-02",
+      name: "Tom",
+      address: "No. 189, Grove St, Los Angeles",
+      tag: "Office"
+    },
+    {
+      date: "2016-05-04",
+      name: "Tom",
+      address: "No. 189, Grove St, Los Angeles",
+      tag: "Home"
+    },
+    {
+      date: "2016-05-01",
+      name: "Tom",
+      address: "No. 189, Grove St, Los Angeles",
+      tag: "Office"
+    }
+  ]
+})
 </script>

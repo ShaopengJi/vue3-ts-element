@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
 import { routesData, whiteList } from "./route.data"
 import { NextLoading } from "@/utils/loading"
+import { TokenKey } from "@/utils/auth"
 
 import Cookies from "js-cookie"
 const baseUrl = import.meta.env.BASE_URL || "/"
@@ -11,22 +12,21 @@ const router = createRouter({
 })
 router.beforeEach((to, from, next) => {
   // NextLoading.start()
-  console.log("!!!!!!!!!!!!!!!!!!", to, from, next)
-  const token = Cookies.get("token")
+  const token = Cookies.get(TokenKey)
+  console.log(token)
   if (whiteList.includes(to.path)) {
     return next()
   }
   if (!token) {
     return next({
-      path: "/home"
+      // path: "/home"
+      path: "/login"
     })
   }
   if (to.path === "/") {
-    return token
-      ? next({ path: "/demo" })
-      : next({
-          path: "/home"
-        })
+    return next({ path: "/index" })
+  } else {
+    next()
   }
 })
 export default router

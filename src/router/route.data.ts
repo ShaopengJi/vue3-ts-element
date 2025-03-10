@@ -14,7 +14,7 @@ export const routesData = [
     path: "/",
     name: "/",
     component: Layout,
-    redirect: "/demo",
+    redirect: "/index",
     children: [
       {
         path: "/index",
@@ -30,6 +30,39 @@ export const routesData = [
         component: () => import("@/views/docsCenter/Index.vue"),
         meta: {
           title: "文档中心"
+        }
+      },
+      {
+        path: "/template",
+        name: "template",
+        component: () => import("@/views/template/Index.vue"),
+        meta: {
+          title: "模板库"
+        }
+      },
+
+      {
+        path: "/module",
+        name: "module",
+        component: () => import("@/views/module/Index.vue"),
+        meta: {
+          title: "模块库"
+        }
+      },
+      {
+        path: "/sourceMaterial",
+        name: "sourceMaterial",
+        component: () => import("@/views/sourceMaterial/Index.vue"),
+        meta: {
+          title: "素材库"
+        }
+      },
+      {
+        path: "/term",
+        name: "term",
+        component: () => import("@/views/term/Index.vue"),
+        meta: {
+          title: "术语库"
         }
       },
       {
@@ -56,4 +89,4 @@ export const routesData = [
   //   component: () => import('../views/AboutView.vue')
   // }
 ]
-export const whiteList = ["/login", "/home", "/demo", "/demo2", "/index", "/docsCenter"]
+export const whiteList = ["/login", "/home"]

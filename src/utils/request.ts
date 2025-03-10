@@ -12,7 +12,8 @@ let downloadLoadingInstance: LoadingInstance
 export const isRelogin = { show: false }
 export const globalHeaders = () => {
   return {
-    Authorization: "Bearer " + getToken(),
+    // Authorization: "Bearer " + getToken(),
+    Authorization: getToken(),
     clientid: import.meta.env.VITE_APP_CLIENT_ID
   }
 }
@@ -34,7 +35,8 @@ service.interceptors.request.use(
     // 是否需要加密
     // const isEncrypt = (config.headers || {}).isEncrypt === "false"
     if (getToken() && !isToken) {
-      config.headers["Authorization"] = "Bearer " + getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
+      // config.headers["Authorization"] = "Bearer " + getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
+      config.headers["Authorization"] = getToken()
     }
     // get请求映射params参数
     if (config.method === "get" && config.params) {
